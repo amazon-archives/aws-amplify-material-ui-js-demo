@@ -3,6 +3,10 @@
 This is the controller for Smart Cafe WAIC demo. Every stakeholder or host use the same
 app. The app is written in Web technology, it is expected to run on every device.
 
+
+If case of anonymous, you will need to login to use the APP. The registration
+will be closed during the WAIC.
+
 ## Sidebar
 Click the menu button to open the sidebar. Different stakeholders click on the sidebar button
 to choose their role.
@@ -32,4 +36,5 @@ Shipping Company press the button to start shipping.
 
 ## Retailer
 After the retailer receives the bottles, s/he will press the button.
+
 ![](assets/retailer.png)

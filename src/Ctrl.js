@@ -36,10 +36,6 @@ export default function Ctrl() {
     // console.log(stateIndex)
   };
 
-  const createOrder = async () => {
-    console.log('create order')
-  };
-
   const requestShipping = async () => {
     console.log('request shipping')
   };
