@@ -7,6 +7,11 @@ app. The app is written in Web technology, it is expected to run on every device
 If case of anonymous, you will need to login to use the APP. The registration
 will be closed during the WAIC.
 
+Scan the QR Code to access the WAIC Smart Cafe Ctrl.
+
+![](assets/qr.png)
+
+
 ## Sidebar
 Click the menu button to open the sidebar. Different stakeholders click on the sidebar button
 to choose their role.
