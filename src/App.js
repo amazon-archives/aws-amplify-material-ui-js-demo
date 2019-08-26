@@ -145,7 +145,24 @@ function App() {
 
 const signUpConfig = {
   defaultCountryCode: "86",
-  usernameAttributes: "email"
+  usernameAttributes: "email",
+  hiddenDefaults: ["username", "phone_number", "email"],
+  signUpFields: [
+    {
+      label: 'Email',
+      key: 'username',
+      required: true,
+      displayOrder: 1,
+      type: 'string'
+    },
+    {
+      label: 'Password',
+      key: 'password',
+      required: true,
+      displayOrder: 2,
+      type: 'password'
+    }
+  ]
 };
 
 export default withAuthenticator(App, { signUpConfig });
