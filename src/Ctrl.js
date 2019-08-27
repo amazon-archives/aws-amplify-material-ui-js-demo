@@ -13,6 +13,9 @@ import Snackbar from '@material-ui/core/Snackbar';
 import SnackbarContent from '@material-ui/core/SnackbarContent';
 import {amber, green} from "@material-ui/core/colors"
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import LinearProgress from '@material-ui/core/LinearProgress';
+
+import { requestShipping, startShipping, finishOrder } from "./API.js"
 
 const useStyles = makeStyles({
   card: {
@@ -23,11 +26,15 @@ const useStyles = makeStyles({
     height: 0,
     paddingTop: '56.25%'
   },
+  root: {
+    flexGrow: 1
+  }
 });
 
 export default function Ctrl() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
+  const [inProgress, setInProgress] = React.useState(false);
   const urlParams = new URLSearchParams(window.location.search);
   const role = urlParams.get('role');
 
@@ -36,21 +43,40 @@ export default function Ctrl() {
     // console.log(stateIndex)
   };
 
-  const requestShipping = async () => {
-    console.log('request shipping')
+  const requestShippingAPI = async () => {
+    if (!inProgress) {
+      setInProgress(true)
+    }
+    console.log('request shipping');
+    await requestShipping();
+    setInProgress(false)
   };
 
-  const startShipping = async () => {
-    console.log('start shipping')
+  const startShippingAPI = async () => {
+    if (!inProgress) {
+      setInProgress(true)
+    }
+    console.log('start shipping');
+    await startShipping();
+    setInProgress(false)
   };
 
-  const acceptOrder = async () => {
-    console.log('accept order')
+  const finishOrderAPI = async () => {
+    if (!inProgress) {
+      setInProgress(true)
+    }
+    console.log('accept order');
+    await finishOrder();
+    setInProgress(false)
   };
 
   const CardView = ({ role }) =>  (
     <Grid container justify={"center"}>
+
       <Card className={classes.card}>
+        <div className={classes.root}>
+          <LinearProgress hidden={!inProgress}/>
+        </div>
         <CardMedia
           className={classes.media}
           image={(()=> {
@@ -77,19 +103,19 @@ export default function Ctrl() {
           {(() => {
             if (role && role.name === "manufacturer") {
               return (
-                <Button variant="contained" size="large" color="primary" onClick={requestShipping}>
+                <Button variant="contained" size="large" color="primary" onClick={requestShippingAPI}>
                   Request to Ship
                 </Button>
               )
             } else if (role && role.name === "shipping") {
               return (
-                <Button variant="contained" size="large" color="primary" onClick={startShipping}>
+                <Button variant="contained" size="large" color="primary" onClick={startShippingAPI}>
                   Start Shipping
                 </Button>
               )
             } else if (role && role.name === "retailer") {
               return (
-                <Button variant="contained" size="large" color="primary" onClick={acceptOrder}>
+                <Button variant="contained" size="large" color="primary" onClick={finishOrderAPI}>
                   Accept Drinks
                 </Button>
               )

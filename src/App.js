@@ -24,6 +24,8 @@ import Divider from "@material-ui/core/Divider";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 import Ctrl from "./Ctrl";
 
+import {createOrder, reset} from "./API";
+
 Amplify.configure(awsconfig);
 
 const useStyles = makeStyles(theme => ({
@@ -68,12 +70,16 @@ function App() {
     window.location.href = `/?role=${role}`
   }
 
-  function resetDemo() {
-    console.log('reset the demo')
+  async function resetDemo() {
+    console.log('reset the demo');
+
+    await reset();
   }
 
   async function createAnOrder() {
-    console.log('creat an order')
+    console.log('creat an order');
+
+    await createOrder();
   }
 
   const sideList = side => (
