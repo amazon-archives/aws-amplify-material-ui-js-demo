@@ -1,8 +1,8 @@
 import axios from "axios";
-
+import config from "api-config";
 
 const instance = axios.create({
-  baseURL: 'http://beer-supplychain-alb-2109300575.ap-northeast-2.elb.amazonaws.com',
+  baseURL: config.orderAPIUrl,
   timeout: 30000,
   headers: {
     'X-username': 'client1',
@@ -44,4 +44,18 @@ export async function finishOrder() {
   await instance.post('/transfer/accept');
 
   await instance.post('/transfer/complete');
+}
+
+export async function changeStage(stageId) {
+  await axios.request({
+    url: config.stageAPIUrl,
+    method: 'post',
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+    },
+    data: {
+      "seqNO": stageId
+    },
+    timeout: 30000
+  });
 }

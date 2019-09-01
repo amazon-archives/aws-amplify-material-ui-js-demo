@@ -15,7 +15,7 @@ import {amber, green} from "@material-ui/core/colors"
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import LinearProgress from '@material-ui/core/LinearProgress';
 
-import { requestShipping, startShipping, finishOrder } from "./API.js"
+import { requestShipping, startShipping, finishOrder, changeStage } from "./API.js"
 
 const useStyles = makeStyles({
   card: {
@@ -37,11 +37,6 @@ export default function Ctrl() {
   const [inProgress, setInProgress] = React.useState(false);
   const urlParams = new URLSearchParams(window.location.search);
   const role = urlParams.get('role');
-
-  function changeState(state) {
-    console.log(state)
-    // console.log(stateIndex)
-  };
 
   const requestShippingAPI = async () => {
     if (!inProgress) {
@@ -143,17 +138,17 @@ export default function Ctrl() {
             WAIC Smart Cafe - Host
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Click the following button to change state
+            Click the following button to change stage
           </Typography>
         </CardContent>
         <CardActions>
-          <Button variant="contained" size="large" color="primary" onClick={() => {changeState("intro")}}>
+          <Button variant="contained" size="large" color="primary" onClick={async () => {await changeStage("1")}}>
             Intro
           </Button>
-          <Button variant="contained" size="large" color="primary" onClick={() => {changeState("demo")}}>
+          <Button variant="contained" size="large" color="primary" onClick={async () => {await changeStage("2")}}>
             Demo
           </Button>
-          <Button variant="contained" size="large" color="primary" onClick={() => {changeState("summary")}}>
+          <Button variant="contained" size="large" color="primary" onClick={async () => {await changeStage("3")}}>
             Summary
           </Button>
         </CardActions>

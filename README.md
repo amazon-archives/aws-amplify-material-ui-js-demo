@@ -43,3 +43,20 @@ Shipping Company press the button to start shipping.
 After the retailer receives the bottles, s/he will press the button.
 
 ![](assets/retailer.png)
+
+## How to develop locally
+
+```shell script
+amplify init
+amplify push
+```
+
+create `src/api-config.js`
+```javascript
+const config = {
+  "orderAPIUrl": "http://<order-api-url>",
+  "stageAPIUrl": "https://<stage-api-url>"
+};
+
+export default config;
+```

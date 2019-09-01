@@ -1,7 +1,7 @@
 {
   "name": "waic-smart-cafe-ctrl",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@material-ui/core": "^4.3.3",
     "@material-ui/icons": "^4.2.1",
