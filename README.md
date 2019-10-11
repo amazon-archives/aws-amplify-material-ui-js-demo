@@ -1,62 +1,62 @@
-# WAIC Smart Cafe Ctrl
+# Amplify and Material UI demo
 
-This is the controller for Smart Cafe WAIC demo. Every stakeholder or host use the same
-app. The app is written in Web technology, it is expected to run on every device.
+AWS Amplify is the fastest and easiest way to build mobile applications on AWS. 
+Amplify allows you quickly set up authentication, analytics, and offline data sync for 
+your mobile applications with a few commands and integrate them into your application with 
+a few lines of code.
+
+[Material UI](https://material-ui.com/) provides a large set of React components for faster and 
+easier web development.
+
+This demo shows how to quickly build an application using AWS Amplify Framework and Material UI
+library with authentication, API features and a modern user interface. Additionally, we will use 
+AWS Amplify Console to deploy this cloud native application.
+
+## Prerequisite
+
+1. Install [AWS Amplify CLI](https://github.com/aws-amplify/amplify-cli#install-the-cli)
+
+1. Configure AWS credentials on your local development environment
+
+1. Nodejs 8+ 
+
+## Getting started
+
+1. install the dependencies, type `npm install` in terminal
+
+1. Create the backend using Amplify CLI. The amplify configuration file has been created in `./amplify` foloder
+it contains a Cognito User Pool which used for authentication.
+    ```shell script
+    amplify init
+    amplify push
+    ```
+1. create file `src/api-config.js`
+    ```javascript
+    const config = {
+      "orderAPIUrl": "http://<order-api-url>",
+      "stageAPIUrl": "https://<stage-api-url>"
+    };
+    
+    export default config;
+    ```
+1. Run command `npm start` to run the web application locally. 
+
+1. To build the artifact, run `npm run build`, the artifact will be genreated in `./build` folder
+
+1. Check the source code to see how to use AWS Amplify with Material UI library.
 
 
-If case of anonymous, you will need to login to use the APP. The registration
-will be closed during the WAIC.
+## Screenshots
 
-Scan the QR Code to access the WAIC Smart Cafe Ctrl.
-
-![](assets/qr.png)
-
-
-## Sidebar
-Click the menu button to open the sidebar. Different stakeholders click on the sidebar button
-to choose their role.
+Click the menu button to open the sidebar. 
 
 ![](assets/sidebar.png)
 
-The **Reset** button is used to reset the entire demo. Normally, it should be used 
-at the beginning of every run by the host.
-
-The **Create an order** button is used to manually place an order, in case **DeepLens** stops 
-working.
-
-## Host
-The host will click **INTRO**, **DEMO**, **SUMMARY** button to enter different stage.
+Screen 2
 
 ![](assets/host.png)
 
-## Manufacturer
-Manufacturer will click the button to fire a shipping request.
 
-![](assets/manufacturer.png)
 
-## Shipping Company
-Shipping Company press the button to start shipping.
 
-![](assets/shipping.png)
 
-## Retailer
-After the retailer receives the bottles, s/he will press the button.
-
-![](assets/retailer.png)
-
-## How to develop locally
-
-```shell script
-amplify init
-amplify push
-```
-
-create `src/api-config.js`
-```javascript
-const config = {
-  "orderAPIUrl": "http://<order-api-url>",
-  "stageAPIUrl": "https://<stage-api-url>"
-};
-
-export default config;
-```
