@@ -1,0 +1,11 @@
+{
+	"auth": {
+		"waicsmartcafectrld6b26b96": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	},
+	"function": {},
+	"api": {}
+}
