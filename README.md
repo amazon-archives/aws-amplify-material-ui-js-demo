@@ -24,7 +24,7 @@ AWS Amplify Console to deploy this cloud native application.
 
 1. install the dependencies, type `npm install` in terminal
 
-1. Create the backend using Amplify CLI. The amplify configuration file has been created in `./amplify` foloder
+1. Create the backend using Amplify CLI. The amplify configuration file has been created in `./amplify` folder
 it contains a Cognito User Pool which used for authentication.
     ```shell script
     amplify init
@@ -41,7 +41,7 @@ it contains a Cognito User Pool which used for authentication.
     ```
 1. Run command `npm start` to run the web application locally. 
 
-1. To build the artifact, run `npm run build`, the artifact will be genreated in `./build` folder
+1. To build the artifact, run `npm run build`, the artifact will be generated in `./build` folder
 
 1. Check the source code to see how to use AWS Amplify with Material UI library.
 
